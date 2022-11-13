@@ -28,14 +28,6 @@ func (s HashSet[T]) Empty() bool {
 	return s.Size() == 0
 }
 
-func (s HashSet[T]) Elements() []T {
-	elements := make([]T, 0, len(s.elements))
-	for element, _ := range s.elements {
-		elements = append(elements, element)
-	}
-	return elements
-}
-
 func (s HashSet[T]) Iterator() <-chan T {
 	ch := make(chan T)
 	go func(ch chan<- T) {

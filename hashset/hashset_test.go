@@ -24,3 +24,14 @@ func TestHashSetInt(t *testing.T) {
 		t.Errorf("expected: [1,3,5], but got: %v", elements)
 	}
 }
+
+func BenchmarkHashSetInt(b *testing.B) {
+	hs := New[int]()
+	for i := 0; i < b.N; i++ {
+		hs.Add(i)
+		if !hs.Contains(i) {
+			b.Error("expected: true, but got: false")
+		}
+		hs.Remove(i)
+	}
+}
