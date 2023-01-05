@@ -1,12 +1,12 @@
 package node
 
-type Node[T any] struct {
+type Node[T comparable] struct {
   value T
   prev *Node[T]
   next *Node[T]
 }
 
-func New[T any](value T, prev, next *Node[T]) *Node[T] {
+func New[T comparable](value T, prev, next *Node[T]) *Node[T] {
   return &Node[T]{value, prev, next}
 }
 
