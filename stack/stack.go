@@ -10,7 +10,7 @@ type Stack[T comparable] struct {
 }
 
 func New[T comparable]() *Stack[T] {
-  return &Stack[T]{nil}
+	return &Stack[T]{nil}
 }
 
 func (s *Stack[T]) IsEmpty() bool {
@@ -18,7 +18,7 @@ func (s *Stack[T]) IsEmpty() bool {
 }
 
 func (s *Stack[T]) Pop() (T, error) {
-  var value T
+	var value T
 	if s.IsEmpty() {
 		return value, errors.New("stack is empty")
 	}
@@ -27,17 +27,17 @@ func (s *Stack[T]) Pop() (T, error) {
 }
 
 func (s *Stack[T]) Push(value T) {
-	node := node.New(value, nil, nil) 
+	node := node.New(value, nil, nil)
 	if s.IsEmpty() {
 		s.head = node
 		return
 	}
 	node.SetNext(s.head)
-  s.head = node
+	s.head = node
 }
 
 func (s *Stack[T]) Top() (T, error) {
-  var value T
+	var value T
 	if s.IsEmpty() {
 		return value, errors.New("stack is empty")
 	}
